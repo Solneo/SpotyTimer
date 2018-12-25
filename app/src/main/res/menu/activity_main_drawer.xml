@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="none">
+        <item
+
+            android:id="@+id/nav_plane_tr"
+            android:icon="@drawable/ic_fitness_center_black_24dp"
+            android:title="План тренировок"
+            />
+        <item
+            android:id="@+id/nav_stat"
+            android:icon="@drawable/ic_equalizer_black_24dp"
+            android:title="Статистика"/>
+        <item
+            android:id="@+id/nav_tr_pattern"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Шаблон тренировки" />
+    </group>
+
+    <item android:title="Дополнительно">
+        <menu>
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Настройки" />
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/ic_exit_to_app_black_24dp"
+                android:title="Выход" />
+        </menu>
+    </item>
+
+</menu>
