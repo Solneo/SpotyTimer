@@ -1,4 +1,4 @@
-package com.sadarol.spotytimer.DatabaseU;
+package com.sadarol.spotytimer.Data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

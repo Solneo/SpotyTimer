@@ -1,4 +1,4 @@
-package com.sadarol.spotytimer.DatabaseU;
+package com.sadarol.spotytimer.Data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,15 +7,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.View;
 
-import com.sadarol.spotytimer.DatabaseU.DatabaseHelper;
-
-public class DBCRUT {
+public class DataCRUT {
     private View v;
     private DatabaseHelper dbHelper;
     Context context;
     private String DATABASE = "",TABLE ="training", NAME ="name", TIME = "time";
 
-    public DBCRUT(View v, DatabaseHelper dbHelper, Context context) {
+    public DataCRUT(View v, DatabaseHelper dbHelper, Context context) {
         this.v = v;
         this.dbHelper = dbHelper;
         this.context = context;

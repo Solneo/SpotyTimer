@@ -1,4 +1,4 @@
-package com.sadarol.spotytimer;
+package com.sadarol.spotytimer.Presentation.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,8 +7,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.sadarol.spotytimer.DatabaseU.DBCRUT;
-import com.sadarol.spotytimer.DatabaseU.DatabaseHelper;
+import com.sadarol.spotytimer.Data.DataCRUT;
+import com.sadarol.spotytimer.Data.DatabaseHelper;
+import com.sadarol.spotytimer.R;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -45,8 +46,8 @@ public class TrPlane extends Fragment {
             public void onClick(View v) {
                 String name = etName.getText().toString();
                 String mail = etEmail.getText().toString();
-                DBCRUT dbcrut = new DBCRUT(v, dbHelper, getActivity());
-                dbcrut.dbAdd(name, mail);
+                DataCRUT dataCRUT = new DataCRUT(v, dbHelper, getActivity());
+                dataCRUT.dbAdd(name, mail);
             }
         });
     }
@@ -54,8 +55,8 @@ public class TrPlane extends Fragment {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBCRUT dbcrut = new DBCRUT(v, dbHelper, getActivity());
-                dbcrut.dbRead();
+                DataCRUT dataCRUT = new DataCRUT(v, dbHelper, getActivity());
+                dataCRUT.dbRead();
             }
         });
     }
@@ -63,8 +64,8 @@ public class TrPlane extends Fragment {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBCRUT dbcrut = new DBCRUT(v,dbHelper, getActivity());
-                dbcrut.dbClear();
+                DataCRUT dataCRUT = new DataCRUT(v,dbHelper, getActivity());
+                dataCRUT.dbClear();
             }
         });
     }

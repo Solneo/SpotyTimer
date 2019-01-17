@@ -1,11 +1,13 @@
-package com.sadarol.spotytimer;
+package com.sadarol.spotytimer.Presentation.Activity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.navigation.NavigationView;
-import com.sadarol.spotytimer.DatabaseU.DatabaseHelper;
+import com.sadarol.spotytimer.Data.DatabaseHelper;
+import com.sadarol.spotytimer.R;
+import com.sadarol.spotytimer.Presentation.Fragment.TrPlane;
 
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -93,7 +95,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_stat) {
             fragmentClass = TrPlane.class;
         } else if (id == R.id.nav_tr_pattern) {
-
+            goToActivity(this, TrTestActivity.class);
         } else if (id == R.id.nav_setting) {
 
         } else if (id == R.id.nav_exit) {
@@ -135,7 +137,6 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
-
 
 
 }

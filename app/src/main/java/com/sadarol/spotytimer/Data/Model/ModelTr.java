@@ -1,6 +1,7 @@
-package com.sadarol.spotytimer.Adapters;
+package com.sadarol.spotytimer.Data.Model;
 
 import android.database.Cursor;
+import android.util.Log;
 
 public class ModelTr {
     private String name;
@@ -13,8 +14,9 @@ public class ModelTr {
         return name;
     }
     public static ModelTr fromCursor(Cursor cursor) {
-        int nameColIndex = cursor.getColumnIndex("name");
         ModelTr modelTr = new ModelTr();
+        int nameColIndex = cursor.getColumnIndex("name");
+        Log.i("ModelTr.fromCursor",Integer.toString(nameColIndex));
         modelTr.setName(cursor.getString(nameColIndex));
         return modelTr;
     }

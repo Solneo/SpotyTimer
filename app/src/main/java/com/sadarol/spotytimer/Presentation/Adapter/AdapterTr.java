@@ -1,4 +1,4 @@
-package com.sadarol.spotytimer.Adapters;
+package com.sadarol.spotytimer.Presentation.Adapter;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.sadarol.spotytimer.Data.Model.ModelTr;
 import com.sadarol.spotytimer.R;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,7 @@ public class AdapterTr extends AdapterRecViewDB<AdapterTr.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, Cursor cursor) {
         ModelTr modelTr = ModelTr.fromCursor(cursor);
         holder.name.setText(modelTr.getName());
+
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
