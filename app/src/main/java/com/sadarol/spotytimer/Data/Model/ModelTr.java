@@ -13,10 +13,11 @@ public class ModelTr {
     public String getName() {
         return name;
     }
+
     public static ModelTr fromCursor(Cursor cursor) {
         ModelTr modelTr = new ModelTr();
         int nameColIndex = cursor.getColumnIndex("name");
-        Log.i("ModelTr.fromCursor",Integer.toString(nameColIndex));
+        Log.i("ModelTr.fromCursor", Integer.toString(nameColIndex));
         modelTr.setName(cursor.getString(nameColIndex));
         return modelTr;
     }

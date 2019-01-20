@@ -6,7 +6,7 @@ import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public abstract class AdapterRecViewDB<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {//Шо это и почему так?
+public abstract class AdapterRecViewDB<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
     private Cursor mCursor;
     private Context context;
     private int mRowIdColumn;
