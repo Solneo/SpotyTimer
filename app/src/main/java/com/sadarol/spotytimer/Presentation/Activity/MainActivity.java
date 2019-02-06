@@ -92,10 +92,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_plane_tr) {
+            goToActivity(this, TrTestActivity.class);
         } else if (id == R.id.nav_stat) {
             fragmentClass = TrPlane.class;
         } else if (id == R.id.nav_tr_pattern) {
-            goToActivity(this, TrTestActivity.class);
+
         } else if (id == R.id.nav_setting) {
 
         } else if (id == R.id.nav_exit) {

@@ -6,12 +6,15 @@ import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public abstract class AdapterRecViewDB<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
+public abstract class AdapterRecViewDB<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH>
+        {
     private Cursor mCursor;
     private Context context;
     private int mRowIdColumn;
 
+
     public AdapterRecViewDB(Cursor cursor, Context context) {
+
         mCursor = cursor;
         mRowIdColumn = cursor != null ? cursor.getColumnIndex("id") : -1;
         Log.i("AdapterRecViewRVDB", "CursorColumnIndex " + Integer.toString(cursor.getColumnIndex("id")));

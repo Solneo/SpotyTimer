@@ -2,6 +2,7 @@ package com.sadarol.spotytimer.Presentation.Adapter;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +14,17 @@ import com.sadarol.spotytimer.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AdapterTr extends AdapterRecViewDB<AdapterTr.ViewHolder> {
+public class AdapterTr extends AdapterRecViewDB<AdapterTr.ViewHolder> implements RecViewDbClick {
+    private static RecViewDbClick itListener;
 
-    public AdapterTr(Cursor cursor, Context context) {
+    public AdapterTr(Cursor cursor, Context context, RecViewDbClick itListener) {
         super(cursor, context);
+        this.itListener = itListener;
+    }
+
+    public void recyclerViewListClicked(View v, int position, int str) {
+        Log.d("errr",
+                "0");
     }
 
     @NonNull
@@ -32,15 +40,29 @@ public class AdapterTr extends AdapterRecViewDB<AdapterTr.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, Cursor cursor) {
         ModelTr modelTr = ModelTr.fromCursor(cursor);
         holder.name.setText(modelTr.getName());
+        holder.id = modelTr.getId();
+        if (modelTr.getDescription() != null && !modelTr.getDescription().contentEquals("")) {
+            holder.desc.setText(modelTr.getDescription());
+            holder.desc.setVisibility(View.VISIBLE);
+        }
 
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name;
+        TextView desc;
+        int id;
+
+        @Override
+        public void onClick(View v) {
+            itListener.recyclerViewListClicked(v, this.getLayoutPosition(), id);
+        }
 
         public ViewHolder(View v) {
             super(v);
+            v.setOnClickListener(this);
             name = (TextView) v.findViewById(R.id.name_tr);
+            desc = (TextView) v.findViewById(R.id.description);
         }
     }
 }

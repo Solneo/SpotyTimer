@@ -1,5 +1,6 @@
 package com.sadarol.spotytimer.Presentation.Fragment;
 
+import android.content.ContentValues;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,11 +48,15 @@ public class TrPlane extends Fragment {
                 String name = etName.getText().toString();
                 String mail = etEmail.getText().toString();
                 DataCRUT dataCRUT = new DataCRUT(v, dbHelper, getActivity());
-                dataCRUT.dbAdd(name, mail);
+                ContentValues cv = new ContentValues();
+                cv.put("name", name);
+                cv.put("time", mail);
+                dataCRUT.dbAdd("training", cv);
             }
         });
     }
-    private void readListener(View v){
+
+    private void readListener(View v) {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,12 +65,13 @@ public class TrPlane extends Fragment {
             }
         });
     }
-    private void clearListener(View v){
+
+    private void clearListener(View v) {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DataCRUT dataCRUT = new DataCRUT(v,dbHelper, getActivity());
-                dataCRUT.dbClear();
+                DataCRUT dataCRUT = new DataCRUT(v, dbHelper, getActivity());
+                dataCRUT.dbClearTable("training");
             }
         });
     }

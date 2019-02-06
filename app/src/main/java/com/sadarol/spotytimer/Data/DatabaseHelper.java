@@ -19,10 +19,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "id integer primary key autoincrement,"
                 + "name text,"
                 + "time text" + ");");
+
+        db.execSQL("create table TemplateExercise ("
+                + "id integer primary key autoincrement,"
+                + "name text,"
+                + "time text" + ");");
+
+        db.execSQL("create table Exercise ("
+                + "id integer primary key autoincrement,"
+                + "template_id integer,"
+                + "time text,"
+                + "training_id integer,"
+                + " FOREIGN KEY(training_id) REFERENCES training(id),"
+                + " FOREIGN KEY(template_id) REFERENCES TemplateExercise(id)"
+                + ");");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        /*db.execSQL("create table training ("
+                + "id integer primary key autoincrement,"
+                + "name text,"
+                + "time text" + ");");
+*/
+        db.execSQL("create table TemplateExercise ("
+                + "id integer primary key autoincrement,"
+                + "name text,"
+                + "time text" + ");");
 
+        db.execSQL("create table Exercise ("
+                + "id integer primary key autoincrement,"
+                + "template_id integer,"
+                + "time text,"
+                + "training_id integer,"
+                + " FOREIGN KEY(training_id) REFERENCES training(id),"
+                + " FOREIGN KEY(template_id) REFERENCES TemplateExercise(id)"
+                + ");");
     }
 }
