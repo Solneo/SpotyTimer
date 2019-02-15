@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.sadarol.spotytimer.Data.DatabaseHelper;
 import com.sadarol.spotytimer.R;
@@ -14,11 +16,14 @@ import com.sadarol.spotytimer.R;
 public class TrainingActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper;
     private String TIME = "time", NAME = "name";
+    private TextView time,name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training);
+        name = (TextView) findViewById(R.id.training_name);
+        time = (TextView) findViewById(R.id.training_desk);
         Intent intent = getIntent();
         int id = intent.getIntExtra("id", 0);
         getData(id);
@@ -33,6 +38,8 @@ public class TrainingActivity extends AppCompatActivity {
         int nameColIndex = cur.getColumnIndex(NAME);
         int emailColIndex = cur.getColumnIndex(TIME);
         if (cur.moveToNext()) {
+            name.setText(cur.getString(nameColIndex));
+            time.setText(cur.getString(emailColIndex));
             Log.d("myinfo",
                     "ID = " + cur.getInt(idColIndex) +
                             ", " + NAME + " = " + cur.getString(nameColIndex) +

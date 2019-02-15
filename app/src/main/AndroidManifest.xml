@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Presentation.Activity.TrainingActivity"></activity>
+        <service
+            android:name=".Presentation.Notification.StartTrainingNotif"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".Presentation.Activity.TrainingActivity" />
         <activity
             android:name=".Presentation.Activity.MainActivity"
             android:label="@string/app_name"
@@ -21,6 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Presentation.Activity.TrTestActivity" />
+        <activity android:name=".Presentation.Notification.StartTrainingNotif" />
+        <activity android:name=".Presentation.Activity.NotificationSetting" />
     </application>
 
 </manifest>

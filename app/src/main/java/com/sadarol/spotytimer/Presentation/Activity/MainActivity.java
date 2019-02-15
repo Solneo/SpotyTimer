@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_tr_pattern) {
 
         } else if (id == R.id.nav_setting) {
-
+            goToActivity(this, NotificationSetting.class);
         } else if (id == R.id.nav_exit) {
 
         }
