@@ -9,6 +9,7 @@ import com.sadarol.spotytimer.Data.DatabaseHelper;
 import com.sadarol.spotytimer.R;
 import com.sadarol.spotytimer.Presentation.Fragment.TrPlane;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -19,6 +20,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -68,10 +70,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -80,6 +83,8 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.notif) {
+            goToActivity(this, NotificationSetting.class);
         }
 
         return super.onOptionsItemSelected(item);
@@ -119,6 +124,7 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
         overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
     }
+
 
     public void setFragment() {
         try {

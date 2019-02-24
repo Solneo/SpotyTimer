@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Presentation.Activity.TrTestActivity" />
-        <activity android:name=".Presentation.Notification.StartTrainingNotif" />
+        <activity android:name=".Presentation.Activity.MainSetting" />
         <activity android:name=".Presentation.Activity.NotificationSetting" />
     </application>
 

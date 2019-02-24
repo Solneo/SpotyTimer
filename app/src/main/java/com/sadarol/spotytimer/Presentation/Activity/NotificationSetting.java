@@ -2,6 +2,7 @@ package com.sadarol.spotytimer.Presentation.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,8 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class NotificationSetting extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        setTheme(R.style.myThemeLight_NoBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notyfication_setting);
+
 
         TextView textView = (TextView) findViewById(R.id.notif_name);
 

@@ -9,12 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="4dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
         android:layout_marginRight="8dp"
         android:elevation="6dp"
         app:cardBackgroundColor="#414864"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="6dp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true"
         app:contentPadding="0dp">
@@ -71,6 +71,39 @@
                 android:layout_height="wrap_content"
                 android:text="Длительность: "
                 android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginRight="6dp"
+                android:layout_marginLeft="6dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Начать"
+                    android:textColor="#ffffff"
+                    style="@style/RoundedCornerButton"
+                    app:icon="@drawable/ic_play_arrow_black_24dp"
+                    app:cornerRadius="8dp"/>
+
+                <Button
+                    android:id="@+id/button_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Копировать" />
+
+                <Button
+                    android:id="@+id/button_del"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Удалить" />
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

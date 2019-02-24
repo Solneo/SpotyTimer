@@ -6,12 +6,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.sadarol.spotytimer.Presentation.Adapter.AdapterTr;
 import com.sadarol.spotytimer.Data.DatabaseHelper;
 import com.sadarol.spotytimer.Presentation.Adapter.RecViewDbClick;
 import com.sadarol.spotytimer.R;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatDrawableManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +30,17 @@ public class TrTestActivity extends AppCompatActivity implements RecViewDbClick 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tr_test_layout);
         getTr();
+        FloatingActionButton fab = findViewById(R.id.fab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+
     }
 
     @Override

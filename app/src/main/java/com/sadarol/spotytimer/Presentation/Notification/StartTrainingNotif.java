@@ -64,18 +64,18 @@ public class StartTrainingNotif extends Service {
        /* Notification notification;*/
 
         Intent intent = new Intent(this, NotificationSetting.class);
-        intent.putExtra("notifName", "somefile");
+        intent.putExtra("notifName", "Данные из уведомления");
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID);
-        builder.setAutoCancel(false);
-        builder.setTicker("this is ticker text");
-        builder.setContentTitle("WhatsApp Notification");
-        builder.setContentText("You have a new message");
+        builder.setAutoCancel(true);
+        builder.setTicker("что-то произошло");
+        builder.setContentTitle("Важное напоминание");
+        builder.setContentText("У вас новое уведомление");
         builder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
         builder.setContentIntent(pIntent);
         builder.setOngoing(true);
-        builder.setSubText("This is subtext...");   //API level 16
+        builder.setSubText("доп. текст...");   //API level 16
         builder.setNumber(100);
 
 

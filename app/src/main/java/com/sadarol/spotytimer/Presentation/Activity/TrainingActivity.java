@@ -20,6 +20,7 @@ public class TrainingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.myThemeLight_NoBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training);
         name = (TextView) findViewById(R.id.training_name);
