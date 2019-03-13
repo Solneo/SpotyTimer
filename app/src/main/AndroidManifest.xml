@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
-            android:name=".Presentation.Notification.StartTrainingNotif"
+            android:name=".Domain.Notification.StartTrainingNotif"
             android:enabled="true"
             android:exported="true"></service>
 
@@ -28,6 +28,7 @@
         <activity android:name=".Presentation.Activity.TrTestActivity" />
         <activity android:name=".Presentation.Activity.MainSetting" />
         <activity android:name=".Presentation.Activity.NotificationSetting" />
+        <activity android:name=".Presentation.Activity.WalkerActivity"/>
     </application>
 
 </manifest>

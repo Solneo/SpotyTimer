@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity
     private Fragment fragment = null;
     private Class fragmentClass = null;
     private DatabaseHelper dbHelper;
-    Button btnAdd, btnRead, btnClear;
-    EditText etName, etEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,39 +69,32 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-
         return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
-
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.notif) {
             goToActivity(this, NotificationSetting.class);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-
         int id = item.getItemId();
-
         if (id == R.id.nav_plane_tr) {
             goToActivity(this, TrTestActivity.class);
         } else if (id == R.id.nav_stat) {
-            fragmentClass = TrPlane.class;
+            goToActivity(this, WalkerActivity.class);
         } else if (id == R.id.nav_tr_pattern) {
-
+            fragmentClass = TrPlane.class;
         } else if (id == R.id.nav_setting) {
-            goToActivity(this, NotificationSetting.class);
+            goToActivity(this, MainSetting.class);
         } else if (id == R.id.nav_exit) {
 
         }
@@ -112,7 +103,7 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
 
         setFragment();
-        fragmentItemDr();
+        fragmentItemDraw();
         setFragmentMenegerAndReplFragment();
         /* item.setChecked(true);*/
         setTitle(item.getTitle());
@@ -140,7 +131,7 @@ public class MainActivity extends AppCompatActivity
         fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
     }
 
-    private void fragmentItemDr() {
+    private void fragmentItemDraw() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }

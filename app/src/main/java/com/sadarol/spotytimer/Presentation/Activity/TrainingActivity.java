@@ -10,13 +10,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.sadarol.spotytimer.Data.DataCRUT;
 import com.sadarol.spotytimer.Data.DatabaseHelper;
 import com.sadarol.spotytimer.R;
 
 public class TrainingActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper;
-    private String TIME = "time", NAME = "name";
-    private TextView time,name;
+    private String DESCRIPTION = "time", NAME = "name";
+    private TextView description, name;
+    DataCRUT dataCRUT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,60 +26,29 @@ public class TrainingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training);
         name = (TextView) findViewById(R.id.training_name);
-        time = (TextView) findViewById(R.id.training_desk);
+        description = (TextView) findViewById(R.id.training_desk);
         Intent intent = getIntent();
         int id = intent.getIntExtra("id", 0);
-        getData(id);
+        getDataById(id);
     }
 
-    protected void getData(int id) {
+    protected void getDataById(int id) {
+
         dbHelper = new DatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor c = db.query("training", null, null, null, null, null, null);
-        Cursor cur = gdt(db, id);
-        int idColIndex = cur.getColumnIndex("id");
+        dataCRUT = new DataCRUT(dbHelper, this);
+        Cursor cur = dataCRUT.getCursorByID(id);
         int nameColIndex = cur.getColumnIndex(NAME);
-        int emailColIndex = cur.getColumnIndex(TIME);
+        int emailColIndex = cur.getColumnIndex(DESCRIPTION);
         if (cur.moveToNext()) {
             name.setText(cur.getString(nameColIndex));
-            time.setText(cur.getString(emailColIndex));
-            Log.d("myinfo",
-                    "ID = " + cur.getInt(idColIndex) +
-                            ", " + NAME + " = " + cur.getString(nameColIndex) +
-                            ", " + TIME + " = " + cur.getString(emailColIndex));
+            description.setText(cur.getString(emailColIndex));
         } else {
             Log.d("myinfo", "0 rows");
         }
-       /* if (c.moveToPosition(c.getColumnIndex("id"))) {
-            // определяем номера столбцов по имени в выборке
-            int idColIndex = c.getColumnIndex("id");
-            int nameColIndex = c.getColumnIndex(NAME);
-            int emailColIndex = c.getColumnIndex(TIME);
-
-            Log.d("myinfo",
-                    "ID = " + c.getInt(idColIndex) +
-                            ", " + NAME +" = " + c.getString(nameColIndex) +
-                            ", " + TIME +" = " + c.getString(emailColIndex));
-*//*
-            do {
-                // получаем значения по номерам столбцов и пишем все в лог
-                Log.d("myinfo",
-                        "ID = " + c.getInt(idColIndex) +
-                                ", " + NAME +" = " + c.getString(nameColIndex) +
-                                ", " + TIME +" = " + c.getString(emailColIndex));
-                // переход на следующую строку
-                // а если следующей нет (текущая - последняя), то false - выходим из цикла
-            } while (c.moveToNext());*//*
-        } else
-            Log.d("myinfo", "0 rows");*/
-        c.close();
         cur.close();
         dbHelper.close();
 
     }
 
-    private Cursor gdt(SQLiteDatabase db, int id) {
-        return db.rawQuery("select * from " + "training" + " where " +
-                "id" + " like ?", new String[]{"%" + id + "%"});
-    }
+
 }

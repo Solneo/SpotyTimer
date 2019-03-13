@@ -10,13 +10,12 @@ import android.view.View;
 import java.util.HashMap;
 
 public class DataCRUT {
-    private View v;
     private DatabaseHelper dbHelper;
     Context context;
     private String TABLE ="training", NAME ="name", TIME = "time";
 
-    public DataCRUT(View v, DatabaseHelper dbHelper, Context context) {
-        this.v = v;
+    public DataCRUT(DatabaseHelper dbHelper, Context context) {
+
         this.dbHelper = dbHelper;
         this.context = context;
     }
@@ -71,5 +70,10 @@ public class DataCRUT {
         int clearCount = db.delete(Table, null, null);
         Log.d("myinfo", "deleted rows count = " + clearCount);
         dbHelper.close();
+    }
+    public Cursor getCursorByID(int id) {//Вынести в отдельный класс с логикой
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        return db.rawQuery("select * from " + "training" + " where " +
+                "id" + " like ?", new String[]{"%" + id + "%"});
     }
 }

@@ -28,13 +28,14 @@
                 android:id="@+id/name_tr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="6dp"
                 android:paddingLeft="12dp"
                 android:paddingTop="6sp"
                 android:paddingBottom="3sp"
-                android:layout_margin="6dp"
                 android:text="Тренировка1"
                 android:textColor="#fcfcfc"
                 android:textSize="22sp" />
+
             <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
@@ -43,7 +44,7 @@
                 android:paddingBottom="3sp"
                 android:text="Всего упражнений: "
                 android:textSize="16sp"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/all_ex"
@@ -55,54 +56,60 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:paddingLeft="12dp"
-                android:paddingBottom="3sp"
                 android:id="@+id/all_interv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="12dp"
+                android:paddingBottom="3sp"
                 android:text="Всего интервалов: "
                 android:textSize="16sp" />
 
             <TextView
-                android:paddingLeft="12dp"
-                android:paddingBottom="6sp"
                 android:id="@+id/all_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="12dp"
+                android:paddingBottom="6sp"
                 android:text="Длительность: "
                 android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
+                android:layout_marginLeft="6dp"
                 android:layout_marginRight="6dp"
-                android:layout_marginLeft="6dp">
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
 
-                <com.google.android.material.button.MaterialButton
+                <Button
                     android:id="@+id/button_start"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Начать"
                     android:textColor="#ffffff"
-                    style="@style/RoundedCornerButton"
-                    app:icon="@drawable/ic_play_arrow_black_24dp"
-                    app:cornerRadius="8dp"/>
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:theme="@style/Button.Blue"/>
 
                 <Button
                     android:id="@+id/button_copy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Копировать" />
+                    android:text="Копировать"
+                    android:textColor="#ffffff"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:theme="@style/Button.Blue"/>
 
                 <Button
                     android:id="@+id/button_del"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Удалить" />
+                    android:text="Удалить"
+                    android:textColor="#ffffff"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:theme="@style/Button.Red"/>
             </LinearLayout>
         </LinearLayout>
 

@@ -2,11 +2,10 @@ package com.sadarol.spotytimer.Presentation.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.sadarol.spotytimer.Presentation.Notification.StartTrainingNotif;
+import com.sadarol.spotytimer.Domain.Notification.StartTrainingNotif;
 import com.sadarol.spotytimer.R;
 
 import androidx.annotation.Nullable;

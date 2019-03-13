@@ -24,6 +24,7 @@
         <item name="android:colorBackground">@color/colorLightWindow</item>
         <item name="android:textColorPrimary">@color/textColorPrimaryLight</item>
         <item name="android:textColorSecondary">@color/textColorSecondaryLight</item>
+
     </style>
 
     <style name="myThemeLight.NoBar" parent="myThemeLight">
@@ -31,9 +32,17 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Button.Blue" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@color/dop_accent_material_light_1</item>
+    </style>
+    <style name="Button.Red" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@color/dop_accent_material_light_2</item>
+    </style>
+
     <style name="RoundedCornerButton" parent="@style/Widget.AppCompat.Button.Colored">
-        <item name="background">@drawable/my_button</item>
-        <item name="colorButtonNormal">#1a237e</item>
+        <item name="colorAccent">@color/dop_accent_material_light_1</item>
+        <item name="background">@drawable/custom_bt</item>
+        <item name="android:background">#1a237e</item>
         <item name="colorControlHighlight">#673ab7</item>
     </style>
 </resources>

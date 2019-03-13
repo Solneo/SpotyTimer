@@ -10,4 +10,7 @@
     <color name="primary_material_light_1">#ff6762</color>
     <color name="primary_dark_material_light_1">#A3413F</color>
     <color name="accent_material_light_1">#4bcadd</color>
+    <color name="dop_accent_material_light_1">#4565dc</color>
+    <color name="dop_accent_material_light_2">#ff6762</color>
+
 </resources>

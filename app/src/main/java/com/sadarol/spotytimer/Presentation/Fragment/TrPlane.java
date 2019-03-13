@@ -47,7 +47,7 @@ public class TrPlane extends Fragment {
             public void onClick(View v) {
                 String name = etName.getText().toString();
                 String mail = etEmail.getText().toString();
-                DataCRUT dataCRUT = new DataCRUT(v, dbHelper, getActivity());
+                DataCRUT dataCRUT = new DataCRUT(dbHelper, getActivity());
                 ContentValues cv = new ContentValues();
                 cv.put("name", name);
                 cv.put("time", mail);
@@ -60,7 +60,7 @@ public class TrPlane extends Fragment {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DataCRUT dataCRUT = new DataCRUT(v, dbHelper, getActivity());
+                DataCRUT dataCRUT = new DataCRUT(dbHelper, getActivity());
                 dataCRUT.dbRead();
             }
         });
@@ -70,7 +70,7 @@ public class TrPlane extends Fragment {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DataCRUT dataCRUT = new DataCRUT(v, dbHelper, getActivity());
+                DataCRUT dataCRUT = new DataCRUT(dbHelper, getActivity());
                 dataCRUT.dbClearTable("training");
             }
         });
