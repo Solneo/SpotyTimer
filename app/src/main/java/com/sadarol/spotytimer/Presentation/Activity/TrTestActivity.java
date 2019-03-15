@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.sadarol.spotytimer.Data.DataCRUT;
 import com.sadarol.spotytimer.Presentation.Adapter.AdapterTr;
 import com.sadarol.spotytimer.Data.DatabaseHelper;
 import com.sadarol.spotytimer.Presentation.Adapter.RecViewDbClick;
@@ -23,6 +24,7 @@ public class TrTestActivity extends AppCompatActivity implements RecViewDbClick 
     private RecyclerView recyclerView;
     private String TABLE = "training";
     private DatabaseHelper dbHelper;
+    private Cursor c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,13 @@ public class TrTestActivity extends AppCompatActivity implements RecViewDbClick 
         startActivity(intent);
     }
 
+    @Override
+    public void deleteButtonClicked(int position, int id) {
+        DataCRUT dataCRUT = new DataCRUT(dbHelper, this);
+        dataCRUT.deleteRow(id);
+        updateAdapter(position);
+    }
+
     private void getTr() {
         recyclerView = (RecyclerView) findViewById(R.id.recycle_test);
 
@@ -59,10 +68,18 @@ public class TrTestActivity extends AppCompatActivity implements RecViewDbClick 
 
         dbHelper = new DatabaseHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor c = db.query(TABLE, null, null, null, null, null, null);
+        c =db.query(TABLE, null, null, null, null, null, null);
         adapterTr = new AdapterTr(c, this, this);
-
         recyclerView.setAdapter(adapterTr);
 
+    }
+
+    public void updateAdapter(int position) {
+
+        recyclerView.removeViewAt(position);
+        adapterTr.notifyItemRemoved(position);
+        adapterTr.notifyItemRangeChanged(position, c.getCount());
+        adapterTr.notifyDataSetChanged();
+        recyclerView.invalidate();
     }
 }
