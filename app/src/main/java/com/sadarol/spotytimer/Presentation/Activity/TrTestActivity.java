@@ -67,19 +67,25 @@ public class TrTestActivity extends AppCompatActivity implements RecViewDbClick 
         recyclerView.setHasFixedSize(true);
 
         dbHelper = new DatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        c =db.query(TABLE, null, null, null, null, null, null);
+        cursorCreate();
         adapterTr = new AdapterTr(c, this, this);
         recyclerView.setAdapter(adapterTr);
 
     }
 
     public void updateAdapter(int position) {
-
+        adapterTr.changeCursor(cursorCreate());
         recyclerView.removeViewAt(position);
         adapterTr.notifyItemRemoved(position);
         adapterTr.notifyItemRangeChanged(position, c.getCount());
-        adapterTr.notifyDataSetChanged();
         recyclerView.invalidate();
+        adapterTr.notifyDataSetChanged();
+
+    }
+
+    private Cursor cursorCreate() {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        c = db.query(TABLE, null, null, null, null, null, null);
+        return c;
     }
 }

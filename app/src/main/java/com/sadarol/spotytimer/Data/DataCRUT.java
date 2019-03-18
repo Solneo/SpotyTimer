@@ -29,13 +29,10 @@ public class DataCRUT {
             int emailColIndex = c.getColumnIndex(TIME);
 
             do {
-                // получаем значения по номерам столбцов и пишем все в лог
                 Log.d("myinfo",
                         "ID = " + c.getInt(idColIndex) +
                                 ", " + NAME + " = " + c.getString(nameColIndex) +
                                 ", " + TIME + " = " + c.getString(emailColIndex));
-                // переход на следующую строку
-                // а если следующей нет (текущая - последняя), то false - выходим из цикла
             } while (c.moveToNext());
         } else
             Log.d("myinfo", "0 rows");

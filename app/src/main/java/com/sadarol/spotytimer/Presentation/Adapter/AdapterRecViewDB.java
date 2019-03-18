@@ -6,8 +6,7 @@ import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public abstract class AdapterRecViewDB<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH>
-        {
+public abstract class AdapterRecViewDB<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
     private Cursor mCursor;
     private Context context;
     private int mRowIdColumn;
@@ -59,6 +58,20 @@ public abstract class AdapterRecViewDB<VH extends RecyclerView.ViewHolder> exten
             return mCursor.getLong(mRowIdColumn);
         }
         return -1;
+    }
+
+    public void changeCursor(Cursor newCursor) {
+        final Cursor oldCursor = mCursor;
+        mCursor = newCursor;
+        if (mCursor != null) {
+            mRowIdColumn = newCursor.getColumnIndexOrThrow("id");
+        } else {
+            mRowIdColumn = -1;
+        }
+        notifyDataSetChanged();
+        if (oldCursor != null) {
+            oldCursor.close();
+        }
     }
 
 }
