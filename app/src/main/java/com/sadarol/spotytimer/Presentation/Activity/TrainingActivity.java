@@ -33,7 +33,7 @@ public class TrainingActivity extends AppCompatActivity {
     }
 
     protected void getDataById(int id) {
-
+//TODO Косяк
         dbHelper = new DatabaseHelper(this);
         dataCRUT = new DataCRUT(dbHelper, this);
         Cursor cur = dataCRUT.getCursorByID(id);

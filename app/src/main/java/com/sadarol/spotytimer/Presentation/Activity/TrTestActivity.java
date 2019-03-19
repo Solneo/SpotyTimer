@@ -88,4 +88,11 @@ public class TrTestActivity extends AppCompatActivity implements RecViewDbClick 
         c = db.query(TABLE, null, null, null, null, null, null);
         return c;
     }
+
+    @Override
+    protected void onDestroy() {
+        c.close();
+        dbHelper.close();
+        super.onDestroy();
+    }
 }
